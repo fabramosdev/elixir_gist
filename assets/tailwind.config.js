@@ -25,7 +25,7 @@ module.exports = {
           light: "#e88fe5",
         },
         elixirGistLavender: {
-          sark: "#8c52ff",
+          dark: "#8c52ff",
           DEFAULT: "#9d74ee",
           light: "#bc9aff",
         },

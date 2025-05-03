@@ -2,6 +2,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+
 /* This file is for your main application CSS */
 @font-face {
   font-family: "WorkSans";
@@ -15,6 +16,24 @@
   src: url("/fonts/WorkSans-Bold.ttf");
   font-weight: bold;
   font-style: normal;
+}
+
+.menu-item {
+  @apply block px-4 py-2 text-sm text-white font-brand font-regular;
+}
+
+.dropdown-menu-arrow::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: calc(95% - 12px);
+  border-width: 0 5px 5px 5px;
+  border-color: transparent transparent white transparent;
+  border-style: solid;
+}
+
+.menu-item:hover {
+  @apply hover:text-elixirGistDark-light;
 }
 
 .round-image-padding {
@@ -32,4 +51,8 @@
   border-width: 3px 3px 0 3px;
   border-color: white transparent transparent transparent;
   border-style: solid;
+}
+
+.\[scrollbar-gutter\:stable\] {
+  scrollbar-gutter: unset;
 }

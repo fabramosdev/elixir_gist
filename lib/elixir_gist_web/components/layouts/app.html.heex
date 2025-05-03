@@ -8,7 +8,7 @@
       <div class="text-white font-brand font-bold text-3xl">Gist</div>
     </a>
 
-    <div class="class">
+    <div>
       <input
         type="text"
         class="rounded-lg focus:outline-none focus:border-elixirGistLavender focus:ring-0 px-3 py-1 bg-elixirGistDark-dark placeholder:elixirGistDark-light text-white font-brand font-regular text-sm mr-5 border-white"
@@ -22,8 +22,89 @@
   </div>
 
   <div class="relative">
-    <button class="img-down-arrow" type="button" id="user-menu-button">
-      <img src="/images/user-image.svg" alt="profile image" class="round-image-padding w-9 h-8" />
+    <button
+      class="img-down-arrow"
+      type="button"
+      id="user-menu-button"
+      phx-click={ElixirGistWeb.Layouts.App.toggle_dropdown_menu()}
+    >
+      <img src="/images/user-image.svg" alt="profile image" class="round-image-padding w-8 h-8" />
     </button>
+    <div
+      id="dropdown_menu"
+      phx-click-away={ElixirGistWeb.Layouts.App.toggle_dropdown_menu()}
+      class="dropdown-menu-arrow absolute right-0 mt-2 py-2 w-auto bg-elixirGistDark rounded-lg shadow-xl border border-white"
+      hidden="true"
+    >
+      <%= if @current_user do %>
+        <.link
+          href={~p"/users/settings"}
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-0"
+        >
+          Logado como {@current_user.email}
+        </.link>
+        <.link
+          href={~p"/"}
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-1"
+        >
+          Meus gists
+        </.link>
+        <.link
+          href={~p"/"}
+          class="menu-item border-b border-white border-opacity-50"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+          id="user-menu-item-2"
+        >
+          Gists salvos
+        </.link>
+        <.link
+          href={~p"/users/log_out"}
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="delete"
+          id="user-menu-item-3"
+        >
+          Sair
+        </.link>
+      <% else %>
+        <div class="w-48">
+          <.link
+            href={~p"/users/log_in"}
+            class="menu-item border-b border-white border-opacity-50"
+            role="menuitem"
+            tabindex="-1"
+            method="get"
+            id="user-menu-item-0"
+          >
+            Logar
+          </.link>
+          <.link
+            href={~p"/users/register"}
+            class="menu-item"
+            role="menuitem"
+            tabindex="-1"
+            method="get"
+            id="user-menu-item-1"
+          >
+            Registrar
+          </.link>
+        </div>
+      <% end %>
+    </div>
   </div>
 </header>
+<main>
+  <.flash_group flash={@flash} />
+  {@inner_content}
+</main>
