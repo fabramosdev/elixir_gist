@@ -95,7 +95,7 @@ defmodule ElixirGistWeb.CoreComponents do
   ## Examples
 
       <.flash kind={:info} flash={@flash} />
-      <.flash kind={:info} phx-mounted={show("#flash")}>Welcome Back!</.flash>
+      <.flash kind={:info} phx-mounted={show("#flash")}>Bem vindo(a)!/.flash>
   """
   attr :id, :string, doc: "the optional id of flash container"
   attr :flash, :map, default: %{}, doc: "the map of flash messages to display"
@@ -147,8 +147,8 @@ defmodule ElixirGistWeb.CoreComponents do
   def flash_group(assigns) do
     ~H"""
     <div id={@id}>
-      <.flash kind={:info} title={gettext("Success!")} flash={@flash} />
-      <.flash kind={:error} title={gettext("Error!")} flash={@flash} />
+      <.flash kind={:info} title={gettext("Sucesso!")} flash={@flash} />
+      <.flash kind={:error} title={gettext("Erro!")} flash={@flash} />
       <.flash
         id="client-error"
         kind={:error}
