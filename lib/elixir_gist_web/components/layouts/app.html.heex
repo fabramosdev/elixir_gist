@@ -108,3 +108,25 @@
   <.flash_group flash={@flash} />
   {@inner_content}
 </main>
+<footer class="h-[120px] w-full flex justify-center text-white px-16 py-20 font-brand font-regular text-[16px]">
+  <div class="w-full px-10">
+    <div class="border-t-[1px] border-white w-full"></div>
+    <div class="flex items-center space-x-2 py-6">
+      <img src="/images/fabramos.jpeg" alt="Fabiano Ramos Foto" class="h-8 w-8 rounded-xl" />
+      <p class="pl-3">
+        {Date.utc_today().year} -
+        <a
+          href="mailto:fabianosantosramos1978@gmail.com"
+          class="hover:text-elixirGistLavender-dark"
+        >
+          Fabiano Ramos
+        </a>
+      </p>
+      <div class="text-elixirGistLavender-dark px-4 space-x-2">
+        <a href={~p"/"} class="hover:underline">Termos</a>
+        <a href={~p"/"} class="hover:underline">Privacidade</a>
+        <a href={~p"/"} class="hover:underline">Sobre</a>
+      </div>
+    </div>
+  </div>
+</footer>
