@@ -1,6 +1,30 @@
-<.flash_group flash={@flash} />
 <div class="elixir-gist-gradient flex items-center justify-center">
   <h1 class="font-brand font-bold text-3xl text-white">
-    Compartilhe código, snippets e anotações em Elixir instantâneamente
+    Compartilhe código, snippets e anotações em Elixir instantâneamente.
   </h1>
 </div>
+<.form for={@form}>
+  <div class="justify-center px-28 w-full space-y-4 mb-10">
+    <.input field={@form[:description]} placeholder="Descrição do gist..." autocomplete="off" />
+    <div>
+      <div class="flex p-2 items-center bg-elixirGistDark rounded-t-md border">
+        <div class="w-[300px] mb-2">
+          <.input
+            field={@form[:name]}
+            placeholder="Nome do arquivo incluindo a extensão..."
+            autocomplete="off"
+          />
+        </div>
+      </div>
+      {textarea(@form, :markup_text,
+      class: "textarea w-full rounded-b-md",
+      placeholder: "Insira o código...",
+      spellcheck: "false",
+      autocomplete: "off"
+      )}
+    </div>
+    <div class="flex justify-end">
+      <.button class="create_button">Criar gist</.button>
+    </div>
+  </div>
+</.form>
